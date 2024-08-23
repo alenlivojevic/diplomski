@@ -1,14 +1,16 @@
 package path;
 
 public enum FilePath {
-    SLIKA_POCETNA("C:\\Projects\\KIK_projekt_2\\slika.jpg"),
-    SLIKA_VRACENA("C:\\Projects\\KIK_projekt_2\\original.jpg"),
-    BASE64("C:\\Projects\\KIK_projekt_2\\base64.txt"),
-    BWTEncoded("C:\\Projects\\KIK_projekt_2\\BWTEncodedFile.txt"),
-    RLEEncoded("C:\\Projects\\KIK_projekt_2\\RLEEncodedFile.txt"),
-    LZWEncoded("C:\\Projects\\KIK_projekt_2\\LZWEncodedFile.txt"),
-    RLEDecoded("C:\\Projects\\KIK_projekt_2\\RLEDecodedFile.txt"),
-    BWTDecoded("C:\\Projects\\KIK_projekt_2\\BWTDecodedFile.txt");
+    SLIKA_POCETNA("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\slika.jpg"),
+    SLIKA_VRACENA("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\original.jpg"),
+    BASE64("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\base64.txt"),
+    HILBERT("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\converted_string_image.txt"),
+    BWTEncoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\BWTEncodedFile.txt"),
+    RLEEncoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\RLEEncodedFile.txt"),
+    LZWEncoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\LZWEncodedFile.txt"),
+    LZWDecoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\LZWDecodedFile.txt"),
+    RLEDecoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\RLEDecodedFile.txt"),
+    BWTDecoded("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\BWTDecodedFile.txt");
 
 
 

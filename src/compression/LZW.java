@@ -23,7 +23,7 @@ public class LZW {
         }
         compressed_length = 0;
 
-        Reader reader = new Reader("C:\\Projects\\KIK_projekt_2\\RLEEncodedFile.txt");
+        Reader reader = new Reader(FilePath.RLEEncoded.getPath());
         Writer writer = new Writer(FilePath.LZWEncoded.getPath());
         String buffer;
         String compressedString;
@@ -39,7 +39,7 @@ public class LZW {
     public static void decompress() throws IOException {
         File file = new File(FilePath.LZWEncoded.getPath());
         Scanner scanner = new Scanner(file);
-        Writer writer = new Writer("C:\\Projects\\KIK_projekt_2\\LZWDecodedFile.txt");
+        Writer writer = new Writer(FilePath.LZWDecoded.getPath());
         String decompressedString;
         while (scanner.hasNext()) {
             String buffer = scanner.next();

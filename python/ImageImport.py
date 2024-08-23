@@ -10,7 +10,7 @@ def importImage():
         visina, širina, _ = slika.shape
         print("Dimenzije slike:", širina, "x", visina)
         
-        izrezana_slika = slika[:128, :128, :]
+        izrezana_slika = slika[400:528, 400:528, :]
 
         visina2, širina2, _ = izrezana_slika.shape
         print("Dimenzije izrezane slike:", širina2, "x", visina2)

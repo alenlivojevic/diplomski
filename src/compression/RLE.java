@@ -13,7 +13,7 @@ public class RLE {
     //static char[] bufferArray = new char[bufferSize];
     public static void compress() throws IOException {
         Reader reader = new Reader(FilePath.BWTEncoded.getPath());
-        // Reader reader = new Reader(FilePath.BASE64.getPath());
+        // Reader reader = new Reader(FilePath.HILBERT.getPath());
         Writer writer = new Writer(FilePath.RLEEncoded.getPath());
         String buffer;
         String compressedString;
@@ -27,8 +27,7 @@ public class RLE {
 
 
     public static void decompress() throws IOException {
-        //TODO osiguraj da idući znak nakon buffera nije znamenka ili *
-        Reader reader = new Reader(FilePath.RLEEncoded.getPath());
+        Reader reader = new Reader(FilePath.LZWDecoded.getPath());
         Writer writer = new Writer(FilePath.RLEDecoded.getPath());
         String buffer;
         String decompressedString;

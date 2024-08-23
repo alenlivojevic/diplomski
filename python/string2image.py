@@ -4,10 +4,10 @@ from ImageImport import importImage, showImage
 ## VRACANJE U ORIGINAL
 
 loaded_hilbert = np.loadtxt('hilbert_matrix.txt')
-loaded_result_numbers = np.loadtxt('converted_image.txt')
+#loaded_result_numbers = np.loadtxt('converted_image.txt')
 loaded_result_numbers_string = []
 
-with open('converted_string_image.txt', 'r', encoding='utf-8') as f:
+with open('BWTDecodedFile.txt', 'r', encoding='utf-8') as f:
 	content = f.read()
 	for char in content:
 		loaded_result_numbers_string.append(ord(char))

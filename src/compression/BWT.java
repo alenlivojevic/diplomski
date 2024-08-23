@@ -5,19 +5,18 @@ import util.Reader;
 import util.Writer;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
 
 public class BWT {
-    private static final char SPECIAL_CHARACTER = '$';
+    private static final char SPECIAL_CHARACTER = '&';
     private static final int bufferSize = 500;
 
     /**
      * Citanje stringa iz datoteke i primjena kompresije
      */
     public static void compress() throws IOException {
-        Reader reader = new Reader(FilePath.BASE64.getPath());
+        Reader reader = new Reader(FilePath.HILBERT.getPath());
         Writer writer = new Writer(FilePath.BWTEncoded.getPath());
         String buffer;
         String compressedString;
@@ -31,11 +30,13 @@ public class BWT {
 
     public static void decompress() throws IOException {
         Reader reader = new Reader(FilePath.RLEDecoded.getPath());
+        Reader original_reader = new Reader(FilePath.HILBERT.getPath());
         Writer writer = new Writer(FilePath.BWTDecoded.getPath());
         String buffer;
         String decompressedString;
-        while (!(buffer = reader.readFromFile(bufferSize + 1)).isEmpty()) {
-            decompressedString = doBWTdecompression(buffer);
+        while (!(buffer = reader.readFromFile(bufferSize)).isEmpty()) {
+            String original_string = original_reader.readFromFile(bufferSize);
+            decompressedString = doBWTdecompression(buffer, original_string);
             writer.write(decompressedString);
         }
         reader.close();
@@ -43,8 +44,6 @@ public class BWT {
     }
 
     public static String doBWTcompression(String input){
-        // Dodavanje posebnog znaka na kraj komprimiranog teksta
-        input += SPECIAL_CHARACTER;
         int length = input.length();
         String[] rotations = new String[length];
 
@@ -66,7 +65,7 @@ public class BWT {
         return sb.toString();
     }
 
-    public static String doBWTdecompression(String input){
+    public static String doBWTdecompression(String input, String original_string){
         int length = input.length();
 
         String[] rotations = new String[length];
@@ -80,16 +79,14 @@ public class BWT {
             Arrays.sort(rotations);
         }
 
-        // Pronalazak izvornog teksta (sadrži posebni znak na kraju)
-        String original = "";
-        for (String rotation : rotations) {
-            if (rotation.endsWith("$")) {
-                original = rotation;
-                break;
+        // Pronalazak izvornog teksta
+        for (String row : rotations) {
+            if (row.equals(original_string)) {
+                return row;
             }
         }
 
-        // Uklanjanje posebnog znaka i vraćanje izvornog teksta
-        return original.substring(0, length - 1);
+        // Ako izvorni string nije pronađen, vraća se prazna vrijednost (ne bi se trebalo dogoditi)
+        return "";
     }
 }
