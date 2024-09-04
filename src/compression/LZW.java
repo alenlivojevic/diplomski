@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class LZW {
-    private static final int bufferSize = 500;
+    private static final int bufferSize = 1000;
     private static int dictionarySize = 256;
     static Map<String, Integer> dictionary = new HashMap<>();
     private static int compressed_length;
@@ -79,35 +79,8 @@ public class LZW {
             reverseDictionary.put(entry.getValue(), entry.getKey());
         }
     }
-    private static String doLZWdecompression(String buffer){
-
-        String[] compressedArray = buffer.split(" ");
-        StringBuilder decompressed = new StringBuilder();
-/*
-        Map<Integer, String> reverseDictionary = new HashMap<>();
-        for (Map.Entry<String, Integer> entry : dictionary.entrySet()) {
-            reverseDictionary.put(entry.getValue(), entry.getKey());
-        }
-*/
-        String current = reverseDictionary.get(Integer.parseInt(compressedArray[0]));
-        decompressed.append(current);
-
-        for (int i = 1; i < compressedArray.length; i++){
-            int code = Integer.parseInt(compressedArray[i]);
-            String entry;
-            if (reverseDictionary.containsKey(code)){
-                entry = reverseDictionary.get(code);
-            } else if (code == dictionarySize){
-                entry = current + current.charAt(0);
-            } else {
-                throw new IllegalArgumentException("Invalid compressed code: " + code);
-            }
-            decompressed.append(entry);
-            reverseDictionary.put(dictionarySize++, current + entry.charAt(0));
-            current = entry;
-        }
-
-        return decompressed.toString();
+    private static String doLZWdecompression(String input){
+        return reverseDictionary.get(Integer.parseInt(input));
     }
 
     public static int getCompressed_length() {

@@ -1,7 +1,7 @@
 package path;
 
 public enum FilePath {
-    SLIKA_POCETNA("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\slika.jpg"),
+    SLIKA_POCETNA("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\pocetna.tiff"),
     SLIKA_VRACENA("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\original.jpg"),
     BASE64("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\base64.txt"),
     HILBERT("C:\\Projects\\DIPLOMSKI_GIT\\diplomski\\converted_string_image.txt"),

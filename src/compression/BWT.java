@@ -9,14 +9,13 @@ import java.util.Arrays;
 
 
 public class BWT {
-    private static final char SPECIAL_CHARACTER = '&';
-    private static final int bufferSize = 500;
+    private static final int bufferSize = 1000;
 
     /**
      * Citanje stringa iz datoteke i primjena kompresije
      */
     public static void compress() throws IOException {
-        Reader reader = new Reader(FilePath.HILBERT.getPath());
+        Reader reader = new Reader(FilePath.BASE64.getPath());
         Writer writer = new Writer(FilePath.BWTEncoded.getPath());
         String buffer;
         String compressedString;
@@ -30,7 +29,7 @@ public class BWT {
 
     public static void decompress() throws IOException {
         Reader reader = new Reader(FilePath.RLEDecoded.getPath());
-        Reader original_reader = new Reader(FilePath.HILBERT.getPath());
+        Reader original_reader = new Reader(FilePath.BASE64.getPath());
         Writer writer = new Writer(FilePath.BWTDecoded.getPath());
         String buffer;
         String decompressedString;

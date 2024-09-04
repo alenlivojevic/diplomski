@@ -21,8 +21,8 @@ public class Main {
             //CONVERT IMAGE
             System.out.println("Image converting started...");
             startTime = System.currentTimeMillis();
-            //ConvertImage.encode_Base64();
-            ConvertImage.encode_hilbert();
+            ConvertImage.encode_Base64();
+            //ConvertImage.encode_hilbert();
             endTime = System.currentTimeMillis();
             durationTime = endTime - startTime;
             System.out.println("Image converting finished in " + durationTime + "ms");
@@ -85,15 +85,15 @@ public class Main {
             //IMAGE CONVERTING
             System.out.println("Image converting started...");
             startTime = System.currentTimeMillis();
-            //ConvertImage.decode_base64();
-            ConvertImage.decode_hilbert();
+            ConvertImage.decode_base64();
+            //ConvertImage.decode_hilbert();
             endTime = System.currentTimeMillis();
             durationTime = endTime - startTime;
             System.out.println("Image converting finished in " + durationTime + "ms");
             decompressionEnd = System.currentTimeMillis();
             decompressionTime = decompressionEnd - decompressionStart;
             System.out.println("Decompression finished in " + decompressionTime + "ms");
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException /*| InterruptedException */e) {
             throw new RuntimeException(e);
         }
 

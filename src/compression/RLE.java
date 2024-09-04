@@ -9,11 +9,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class RLE {
-    private static final int bufferSize = 500;
+    private static final int bufferSize = 1000;
     //static char[] bufferArray = new char[bufferSize];
     public static void compress() throws IOException {
-        Reader reader = new Reader(FilePath.BWTEncoded.getPath());
-        // Reader reader = new Reader(FilePath.HILBERT.getPath());
+         Reader reader = new Reader(FilePath.BWTEncoded.getPath());
+        //Reader reader = new Reader(FilePath.HILBERT.getPath());
+        //Reader reader = new Reader(FilePath.BASE64.getPath());
         Writer writer = new Writer(FilePath.RLEEncoded.getPath());
         String buffer;
         String compressedString;

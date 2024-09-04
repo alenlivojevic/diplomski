@@ -56,6 +56,7 @@ public class ConvertImage {
 
     public static void decode_base64() throws IOException {
         Path path = Paths.get(FilePath.BWTDecoded.getPath());
+        //Path path = Paths.get(FilePath.RLEDecoded.getPath());
         byte[] data = Base64.getDecoder().decode(Files.readAllBytes(path));
         Files.write(Paths.get(FilePath.SLIKA_VRACENA.getPath()), data);
         System.out.println("Image saved");
